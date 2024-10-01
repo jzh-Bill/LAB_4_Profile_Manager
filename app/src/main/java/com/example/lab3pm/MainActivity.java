@@ -72,16 +72,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
     }
 
-
-
-
     public void onOpenInGoogleMaps() {
-        String location = locationEditText.getText().toString();
 
+        EditText teamAddress = (EditText) findViewById(R.id.locationEditText);
+        String location = locationEditText.getText().toString();
         Uri gmmIntentUri = Uri.parse("http://maps.google.co.in/maps?q=" + location);
         Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
         mapIntent.setPackage("com.google.android.apps.maps");
@@ -91,22 +87,23 @@ public class MainActivity extends AppCompatActivity {
     public void onSetAvatarButton(View view) {
         Intent intent = new Intent(this, ProfileActivity.class);
         avatarLauncher.launch(intent);
+
+        // Does not support anymore from the video
+//        Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+//        startActivityForResult(intent);
     }
 
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-
         super.onActivityResult(requestCode, resultCode, data);
-
 
         // Getting the Avatar Image we show to our users
         ImageView avatarImage = (ImageView) findViewById(R.id.logoImageView);
 
         // Figuring out the correct image
         String drawableName = "avatar1";
-        switch (data.getIntExtra("selectedImageId", R.id.imageView1)) {
+        switch (data.getIntExtra("imageID", R.id.imageView2)) {
             case R.id.imageView1:
                 drawableName = "avatar1";
                 break;

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Lab3PM</string>
+    <string name="soccer_team_manager">Soccer Team Manager</string>
+    <string name="profile_activity_title">Select a New Avatar</string>
 </resources>
